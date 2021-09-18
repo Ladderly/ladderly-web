@@ -9,17 +9,15 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 const Button: FC<Props> = ({ theme, children, className, ...rest }) => {
   const themeClasses =
     theme === "fill"
-      ? "bg-secondary-500 text-white hover:bg-secondary-300"
-      : "hover:text-secondary-500  border-black md:border-2";
+      ? "bg-secondary-500 text-white hover:bg-secondary-300 "
+      : "hover:text-secondary-500  border-black md:border-2 hover:border-secondary-500 ";
   return (
-    <div>
+    <div className={className}>
       <button
         {...rest}
         className={
           "rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider " +
-          themeClasses +
-          " " +
-          className
+          themeClasses
         }
       >
         {children}
