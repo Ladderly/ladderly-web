@@ -10,19 +10,18 @@ const Button: FC<Props> = ({ theme, children, className, ...rest }) => {
   const themeClasses =
     theme === "fill"
       ? "bg-secondary-500 text-white hover:bg-secondary-300 "
-      : "hover:text-secondary-500  border-black md:border-2 hover:border-secondary-500 ";
+      : "hover:text-secondary-500  border-black md:border hover:border-secondary-500 ";
   return (
-    <div className={className}>
-      <button
-        {...rest}
-        className={
-          "rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider " +
-          themeClasses
-        }
-      >
-        {children}
-      </button>
-    </div>
+    <button
+      {...rest}
+      className={
+        "rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider " +
+        themeClasses +
+        className
+      }
+    >
+      {children}
+    </button>
   );
 };
 Button.defaultProps = {
