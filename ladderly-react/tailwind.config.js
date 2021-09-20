@@ -6,11 +6,10 @@ module.exports = {
   theme: {
     colors: {
       secondary: {
-        100: "#e9fbfc",
-        200: "#bcf4f5",
-        300: "#8fecef",
-        400: "#63e5e9",
-        500: "#36dee2",
+        100: "#39D2BE",
+        200: "#53C7B3",
+        300: "#29BAA1",
+        400: "#06705D",
       },
       gray: colors.gray,
       white: colors.white,
