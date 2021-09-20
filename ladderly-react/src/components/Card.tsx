@@ -12,7 +12,7 @@ const Card: FC<Props> = ({title, questions}) => {
  <div className="p-4 border-solid border-gray-100 rounded border-4 w-1/4 hover:shadow-lg duration-100">
     <div className="text-center font-bold text-xl">{title}</div> 
     <div className="text-center">{questions + " Questions"}</div>
-    <Button className="flex justify-center mt-10">Start</Button>
+    <Button className="block mx-auto mt-10">Start</Button>
  </div>
  );
 }
