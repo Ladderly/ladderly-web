@@ -15,7 +15,11 @@ module.exports = {
       white: colors.white,
       black: colors.black,
     },
-    extend: {},
+    extend: {
+      fontSize: {
+        "6xl": "4.375rem",
+      },
+    },
   },
   variants: {
     extend: {},
