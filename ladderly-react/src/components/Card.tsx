@@ -4,11 +4,14 @@ import Button from "./Button";
 interface Props {
   title: string;
   questions: number;
+  className?: string;
 }
 
-const Card: FC<Props> = ({ title, questions }) => {
+const Card: FC<Props> = ({ title, questions, className }) => {
   return (
-    <div className="w-full p-4 mx-auto duration-100 rounded-md shadow-md md:w-1/3 hover:shadow-lg bg-gray-50">
+    <div
+      className={`p-4 mx-auto duration-100 rounded-md shadow-md hover:shadow-lg bg-gray-50 ${className}`}
+    >
       <div className="text-2xl font-bold text-center text-secondary-400">
         {title}
       </div>
@@ -20,6 +23,8 @@ const Card: FC<Props> = ({ title, questions }) => {
   );
 };
 
-Card.defaultProps = {};
+Card.defaultProps = {
+  className: "",
+};
 
 export default memo(Card);
