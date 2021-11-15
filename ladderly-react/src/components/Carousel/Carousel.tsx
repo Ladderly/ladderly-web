@@ -1,5 +1,5 @@
 import React, { FC, memo } from "react";
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
+import SwiperCore, { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import "./Carousel.css";
@@ -7,7 +7,7 @@ import HeroSection from "./CarouselItems/HeroSection";
 
 interface Props {}
 
-SwiperCore.use([Navigation, Pagination, Autoplay]);
+SwiperCore.use([Pagination, Autoplay]);
 const Carousel: FC<Props> = (props) => {
   return (
     <>
@@ -17,7 +17,6 @@ const Carousel: FC<Props> = (props) => {
           disableOnInteraction: false,
         }}
         slidesPerView={1}
-        navigation={true}
         pagination={{ clickable: true }}
         tag="section"
         id="main"
