@@ -1,10 +1,5 @@
 import React, { FC, memo } from "react";
-import SwiperCore, {
-  Autoplay,
-  EffectFade,
-  Navigation,
-  Pagination,
-} from "swiper";
+import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import "./Carousel.css";
@@ -12,12 +7,11 @@ import HeroSection from "./CarouselItems/HeroSection";
 
 interface Props {}
 
-SwiperCore.use([Navigation, Pagination, Autoplay, EffectFade]);
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 const Carousel: FC<Props> = (props) => {
   return (
     <>
       <Swiper
-        effect={"fade"}
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,
@@ -29,13 +23,13 @@ const Carousel: FC<Props> = (props) => {
         id="main"
       >
         <SwiperSlide>
-          <HeroSection />
+          <HeroSection icon="ladder" />
         </SwiperSlide>
         <SwiperSlide>
-          <HeroSection />
+          <HeroSection icon="custom" />
         </SwiperSlide>
         <SwiperSlide>
-          <HeroSection />
+          <HeroSection icon="community" />
         </SwiperSlide>
       </Swiper>
     </>
