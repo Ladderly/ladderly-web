@@ -12,7 +12,7 @@ const Card: FC<Props> = ({ title, questions, className }) => {
     <div
       className={`p-4 mx-auto duration-100 rounded-md shadow-md hover:shadow-lg bg-gray-50 ${className}`}
     >
-      <div className="text-2xl font-bold text-center text-secondary-400">
+      <div className="text-lg md:text-2xl font-bold text-center text-secondary-400">
         {title}
       </div>
       <div className="mt-5 font-semibold text-center text-secondary-400">
