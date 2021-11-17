@@ -19,6 +19,9 @@ module.exports = {
       fontSize: {
         "6xl": "4.375rem",
       },
+      backgroundImage: {
+        auth: "url('./assets/img/bg-login.png')",
+      },
     },
   },
   variants: {
