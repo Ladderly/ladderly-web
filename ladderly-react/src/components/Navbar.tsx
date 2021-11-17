@@ -8,7 +8,7 @@ interface Props {}
 const Navbar: FC<Props> = (props) => {
   return (
     <>
-      <nav className="sticky top-0 z-10 flex items-center justify-between w-full h-16 px-8 text-center bg-white border-b border-gray-100 shadow-md">
+      <nav className="sticky top-0 z-10 flex items-center justify-between w-full h-16 px-8 text-center bg-white border-b border-gray-100 shadow-md md:mb-10">
         <div className="flex items-center justify-between w-full h-16 px-5">
           <div className="flex items-center object-fill">
             <svg
