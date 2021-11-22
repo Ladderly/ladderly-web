@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { firestore } from "../../firebase";
 import firebase from "../../firebase";
 import { IoIosArrowDown } from "react-icons/io";
+import QuestionSkeletonList from "../../components/SkeletonLoaders/QuestionSkeletonList";
 
 interface Props {}
 
@@ -56,7 +57,8 @@ const ProblemList: FC<Props> = (props) => {
           })}
         </div>
       ) : (
-        <div>LOADING.....</div>
+        // <div>LOADING.....</div>
+        <QuestionSkeletonList />
       )}
     </div>
   );

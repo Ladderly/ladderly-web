@@ -1,6 +1,7 @@
 import React, { FC, memo, useContext } from "react";
 import Card from "./Card";
 import { LadderContext } from "../context/LadderContext";
+import CardSkeletonList from "./SkeletonLoaders/CardSkeletonList";
 
 interface Props {}
 
@@ -32,7 +33,8 @@ const CardList: FC<Props> = (props) => {
           questions={data[0]?.numberOfQuestions}
         />
       ) : (
-        <div> LOADING...... </div>
+        // <div> LOADING...... </div>
+        <CardSkeletonList />
       )}
     </div>
   );
