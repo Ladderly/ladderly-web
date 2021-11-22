@@ -66,7 +66,10 @@ const Navbar: FC<Props> = (props) => {
                 </>
               )
             ) : (
-              <div>LOADING.....</div>
+              <div className="flex items-center space-x-4">
+                <div className="w-16 bg-gray-200 rounded-full h-9 animate-pulse"></div>
+                <div className="w-16 bg-gray-200 rounded-full h-9 animate-pulse"></div>
+              </div>
             )}
           </div>
         </div>
