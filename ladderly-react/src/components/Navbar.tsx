@@ -1,16 +1,30 @@
-import React, { FC, Fragment, memo, useRef, useState } from "react";
+import React, { FC, Fragment, memo, useContext, useRef, useState } from "react";
 import { GrClose } from "react-icons/gr";
 import Button from "./Button";
 import { HiOutlineMenu } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
-import {ReactComponent as Ladderly} from "../assets/svg/navbar.svg"
+import { ReactComponent as Ladderly } from "../assets/svg/navbar.svg";
+import { AuthContext } from "../context/AuthContext";
+import Avatar from "./Avatar";
+import { auth } from "../firebase";
+import { LadderContext } from "../context/LadderContext";
 
 interface Props {}
 
 const Navbar: FC<Props> = (props) => {
+  const user = useContext(AuthContext);
+  const { loading } = useContext(LadderContext);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   let completeButtonRef = useRef(null);
+  const signOut = () => {
+    return auth.signOut();
+  };
+  const handleSignOut = () => {
+    signOut().then(() => {
+      window.location.href = "/ladders";
+    });
+  };
   return (
     <>
       <nav className="sticky top-0 z-10 flex items-center justify-between w-full h-16 px-1 text-center bg-white border-b border-gray-100 shadow-md sm:px-8 md:mb-10">
@@ -31,24 +45,45 @@ const Navbar: FC<Props> = (props) => {
                 <button className="font-semibold">Community</button>
               </Link>
             </li>
-            <Link to="/signin">
-            <Button theme="outline">Sign in</Button>
-            </Link>
-            <Link to="/signup">
-            <Button>Sign up</Button>
-            </Link>
+            {!loading ? (
+              !user ? (
+                <>
+                  <Link to="/signin">
+                    <Button theme="outline">Sign in</Button>
+                  </Link>
+                  <Link to="/signup">
+                    <Button>Sign up</Button>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Avatar
+                    alt="profile_pic"
+                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    size="small"
+                  />
+                  <Button onClick={handleSignOut}>Sign Out</Button>
+                </>
+              )
+            ) : (
+              <div>LOADING.....</div>
+            )}
           </div>
         </div>
 
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(true)}>
-          {!isMenuOpen && <HiOutlineMenu className="w-10 h-10" />}
+            {!isMenuOpen && <HiOutlineMenu className="w-10 h-10" />}
             {isMenuOpen && <GrClose className="w-10 h-10" />}
           </button>
         </div>
       </nav>
       <Transition.Root show={isMenuOpen} as={Fragment}>
-        <Dialog initialFocus={completeButtonRef} open={isMenuOpen} onClose={setIsMenuOpen}>
+        <Dialog
+          initialFocus={completeButtonRef}
+          open={isMenuOpen}
+          onClose={setIsMenuOpen}
+        >
           <Transition.Child
             as={Fragment}
             enter="transition-opacity duration-300"
@@ -72,17 +107,35 @@ const Navbar: FC<Props> = (props) => {
           >
             <div className="fixed bottom-0 right-0 z-10 flex flex-col w-40 h-full pl-2 space-y-4 transform bg-gray-200 border-2 sm:hidden top-16">
               <Link to="/community">
-              <button ref={completeButtonRef} className="font-bold text-center w-7">Community</button>
+                <button ref={completeButtonRef} className="font-bold">
+                  Community
+                </button>
               </Link>
               <Link to="/ladders">
-              <button className="font-bold text-center w-7">Ladders</button>
+                <button className="font-bold">Ladders</button>
               </Link>
-              <Link to="/signin">
-              <button className="font-bold text-center w-7">Login</button>
-              </Link>
-              <Link to="/signup">
-              <button className="font-bold text-center w-7">SignUp</button>
-              </Link>
+              {!user ? (
+                <>
+                  <Link to="/signin">
+                    <button className="font-bold">Sign In</button>
+                  </Link>
+                  <Link to="/signup">
+                    <button className="font-bold">SignUp</button>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/profile">
+                    <button className="font-bold">Profile</button>
+                  </Link>
+                  <button
+                    onClick={handleSignOut}
+                    className="block mr-auto font-bold"
+                  >
+                    Sign Out
+                  </button>
+                </>
+              )}
             </div>
           </Transition.Child>
         </Dialog>
