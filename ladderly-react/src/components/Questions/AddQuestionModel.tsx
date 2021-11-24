@@ -122,9 +122,11 @@ import {
                     <Dialog.Title className="text-lg font-semibold text-center text-secondary-400">
                       Add Question
                     </Dialog.Title>
+                   {!user && <p className="my-2 text-sm font-semibold text-center text-red-500">*Sign in to add questions</p>}
                     <TextField
                       id="outlined-multiline-flexible"
                       label="Enter your Question"
+                      required
                       multiline
                       maxRows={4}
                       sx={{
@@ -150,7 +152,7 @@ import {
                           width: 200,
                         }}
                         renderInput={(params) => (
-                          <TextField color="success" {...params} label="Tag" />
+                          <TextField required color="success" {...params} label="Tag" />
                         )}
                       />
                     ) : (
@@ -159,6 +161,7 @@ import {
                           marginTop: 3,
                         }}
                         color="success"
+                        required
                         label="Enter Tag"
                         size="small"
                         variant="outlined"
