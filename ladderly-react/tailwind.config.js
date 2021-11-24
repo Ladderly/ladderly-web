@@ -14,6 +14,7 @@ module.exports = {
       gray: colors.gray,
       white: colors.white,
       black: colors.black,
+      red: colors.red,
     },
     extend: {
       fontSize: {
