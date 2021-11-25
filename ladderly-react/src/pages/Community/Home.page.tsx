@@ -4,6 +4,7 @@ import QACard from "../../components/Questions/QACard";
 import firebase from "firebase/compat/app";
 import { firestore } from "../../firebase";
 import CommunitySkeletonLoaderList from "../../components/SkeletonLoaders/CommunitySkeletonLoaderList";
+import profile from "../../assets/img/anonymous.jpg";
 
 interface Props {}
 
@@ -38,7 +39,7 @@ const Home: FC<Props> = (props) => {
             {answers.map((answer, index) => {
               return (
                 <QACard
-                  profile={`https://randomuser.me/api/portraits/men/${index}.jpg`}
+                  profile={profile}
                   title={answer.questionText}
                   key={index}
                   resolver={answer.userName}

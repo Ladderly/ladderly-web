@@ -8,6 +8,7 @@ import ProfileQuestionCard from "../../components/Questions/ProfileQuestionCard"
 import ProfileAnswerCard from "../../components/Answers/ProfileAnswerCard";
 import { useParams } from "react-router-dom";
 import ProfileSkeletonLoader from "../../components/SkeletonLoaders/ProfileSkeletonLoader";
+import profile from "../../assets/img/anonymous.jpg";
 
 interface Props {}
 
@@ -76,11 +77,7 @@ const Profile: FC<Props> = (props) => {
         <div className="flex items-center space-x-5">
           {!loadingQuestionList ? (
             <div className="relative">
-              <Avatar
-                size="large"
-                src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                alt="profile-pic"
-              />
+              <Avatar size="large" src={profile} alt="profile-pic" />
               <FaEdit className="absolute p-1 border-2 rounded-full cursor-pointer w-7 h-7 bottom-1 right-2 border-secondary-400 text-secondary-400" />
             </div>
           ) : (
