@@ -20,7 +20,7 @@ const AppContainer: FC<Props> = (props) => {
           exact
           component={ProblemListPage}
         />
-        <Route path="/profile/:profileID" exact component={ProfilePage} />
+        <Route path="/profile/:userID" exact component={ProfilePage} />
       </Switch>
     </>
   );
