@@ -57,11 +57,13 @@ const Navbar: FC<Props> = (props) => {
                 </>
               ) : (
                 <>
-                  <Avatar
-                    alt="profile_pic"
-                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                    size="small"
-                  />
+                  <Link to={`/profile/${user.uid}`}>
+                    <Avatar
+                      alt="profile_pic"
+                      src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                      size="small"
+                    />
+                  </Link>
                   <Button onClick={handleSignOut}>Sign Out</Button>
                 </>
               )
