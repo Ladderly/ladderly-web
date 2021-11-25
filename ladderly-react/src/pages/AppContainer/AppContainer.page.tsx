@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import LaddersPage from "./Ladders.page";
 import ProblemListPage from "./ProblemList.page";
+import ProfilePage from "./Profile.page";
 import TopicsPage from "./Topics.page";
 
 interface Props {}
@@ -19,6 +20,7 @@ const AppContainer: FC<Props> = (props) => {
           exact
           component={ProblemListPage}
         />
+        <Route path="/profile/:profileID" exact component={ProfilePage} />
       </Switch>
     </>
   );
