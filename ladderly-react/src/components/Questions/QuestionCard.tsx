@@ -1,8 +1,8 @@
 import React, { FC, memo, useState } from "react";
 import { IoMdClose, IoMdShareAlt } from "react-icons/io";
-import { useHistory } from "react-router";
 import Button from "../Button";
 import { AiFillTags } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 interface Props {
   children: string;
@@ -11,7 +11,6 @@ interface Props {
 }
 
 const QuestionCard: FC<Props> = ({ children, tag, questionID }) => {
-  const history = useHistory();
   const [visibility, setVisibility] = useState<boolean>(true);
   const [undoVisibility, setUndoVisibility] = useState<boolean>(false);
   return (
@@ -39,13 +38,9 @@ const QuestionCard: FC<Props> = ({ children, tag, questionID }) => {
 
               <div className="mt-4 border-b-2 border-secondary-400"></div>
               <div className="flex items-center justify-between py-2 mx-6">
-                <Button
-                  onClick={() => {
-                    history.push(`/question/${questionID}`);
-                  }}
-                >
-                  Answer
-                </Button>
+                <Link to={`/community/question/${questionID}`}>
+                  <Button>Answer</Button>
+                </Link>
                 <button>
                   <IoMdShareAlt className="w-8 h-8 text-secondary-400" />
                 </button>
