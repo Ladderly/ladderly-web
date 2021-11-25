@@ -53,19 +53,15 @@ const QACard: FC<Props> = ({
             <div className="flex items-center space-x-4">
               <Avatar src={profile} alt="profile-pic" size="small" />
               <Link to={`/profile/${userID}`}>
-              <span
-                className="font-semibold text-gray-700 cursor-pointer"
-              >
-                {resolver}
-              </span>
+                <span className="font-semibold text-gray-700 cursor-pointer">
+                  {resolver}
+                </span>
               </Link>
             </div>
-            <Link to={`/question/${questionID}`}>
-            <h2
-              className="my-4 text-lg font-semibold cursor-pointer hover:underline"
-            >
-              {title}
-            </h2>
+            <Link to={`/community/question/${questionID}`}>
+              <h2 className="my-4 text-lg font-semibold cursor-pointer hover:underline">
+                {title}
+              </h2>
             </Link>
             {!readMore && (
               <div className="overflow-hidden whitespace-pre-wrap max-h-24">
