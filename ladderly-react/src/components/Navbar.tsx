@@ -9,6 +9,7 @@ import { AuthContext } from "../context/AuthContext";
 import Avatar from "./Avatar";
 import { auth } from "../firebase";
 import { LadderContext } from "../context/LadderContext";
+import profile from "../assets/img/anonymous.jpg";
 
 interface Props {}
 
@@ -58,11 +59,7 @@ const Navbar: FC<Props> = (props) => {
               ) : (
                 <>
                   <Link to={`/profile/${user.uid}`}>
-                    <Avatar
-                      alt="profile_pic"
-                      src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                      size="small"
-                    />
+                    <Avatar alt="profile_pic" src={profile} size="small" />
                   </Link>
                   <Button onClick={handleSignOut}>Sign Out</Button>
                 </>
@@ -117,7 +114,12 @@ const Navbar: FC<Props> = (props) => {
                 </button>
               </Link>
               <Link to="/ladders">
-                <button className="font-bold">Ladders</button>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="font-bold"
+                >
+                  Ladders
+                </button>
               </Link>
               {!user ? (
                 <>
@@ -130,8 +132,13 @@ const Navbar: FC<Props> = (props) => {
                 </>
               ) : (
                 <>
-                  <Link to="/profile">
-                    <button className="font-bold">Profile</button>
+                  <Link to={`/profile/${user.uid}`}>
+                    <button
+                      onClick={() => setIsMenuOpen(false)}
+                      className="font-bold"
+                    >
+                      Profile
+                    </button>
                   </Link>
                   <button
                     onClick={handleSignOut}

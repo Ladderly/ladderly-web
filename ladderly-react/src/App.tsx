@@ -28,7 +28,7 @@ function App() {
             path={[
               "/community",
               "/community/questionList",
-              "/community/questionList/:questionID",
+              "/community/question/:questionID",
             ]}
             exact
             component={CommunityPage}

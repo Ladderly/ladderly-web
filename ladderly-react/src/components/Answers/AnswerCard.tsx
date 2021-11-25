@@ -10,6 +10,7 @@ import {
   FaRegComment,
 } from "react-icons/fa";
 import { IoMdShareAlt } from "react-icons/io";
+import profile from "../../assets/img/anonymous.jpg";
 
 interface Props {
   resolver: string;
@@ -25,11 +26,7 @@ const AnswerCard: FC<Props> = ({ resolver, answer, imgSrc }) => {
     <div className="relative bg-gray-100 shadow-lg">
       <div className="p-5">
         <div className="flex items-center space-x-4">
-          <Avatar
-            src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt="profile-pic"
-            size="small"
-          />
+          <Avatar src={profile} alt="profile-pic" size="small" />
           <span className="font-semibold text-gray-700">{resolver}</span>
         </div>
         <button>

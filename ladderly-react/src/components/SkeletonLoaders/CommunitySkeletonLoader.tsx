@@ -14,7 +14,7 @@ const CommunitySkeletonLoader: FC<Props> = ({ page }) => {
             <div className="w-24 h-6 bg-gray-300 rounded-full"></div>
           </div>
         )}
-        <div className="h-6 mt-3 mb-6 bg-gray-300 rounded-full w-52 sm:w-96"></div>
+        <div className="w-4/6 h-6 mt-3 mb-6 bg-gray-300 rounded-full"></div>
         {page === "home" && (
           <>
             <div className="w-full h-4 my-2 bg-gray-300 rounded-full"></div>
